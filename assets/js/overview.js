@@ -16,7 +16,7 @@ const box = d3.select('.box');
 // const svg = box.append('svg');
 // svg.append('rect');
 
-// ATTRIBUTE
+// ATTRIBUTE (svg specific)
 
 // svg.attr('heigh', 500);
 // svg.attr('width', 600);
@@ -58,3 +58,16 @@ group.append('circle')
    .attr('cx', 350)
    .attr('cy', 150)
    .attr('fill', 'pink');
+
+// Methode .data
+
+var myData =['50', '45', '40', '35', '30'];
+
+d3.selectAll('p')
+  .data(myData)
+  .text(function(d) {
+    return d;
+  })
+  .style("font-size", function(d){
+    return d + "px"
+  })

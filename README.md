@@ -1,4 +1,4 @@
-# D3.Js
+# D3.js - Data-Driven Documents
 
 November 2020
 
@@ -11,7 +11,7 @@ November 2020
 <h1 align="center">
     <img src="_readme-img/d3-logo.png">
 </h1>
-## How to use 
+## How to use
 
 In html file, ad:
 
@@ -28,4 +28,4 @@ In html file, ad:
 - [D3Js](https://d3js.org/)
 - [D3Js - github / reference](https://github.com/d3/d3)
 - [D3.js Snippets](https://marketplace.visualstudio.com/items?itemName=hridoy.d3-js-snippets)
-- []()
+- [geeksforgeeks.org - D3.js](https://www.geeksforgeeks.org/tag/d3-js/)
