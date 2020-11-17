@@ -20,8 +20,10 @@ that is in the selection.*/
 const graph = svg.append('g')
                  .attr('width', graphWidth)
                  .attr('height', graphHeight)
-                 .attr('transform', `translate(${margin.left}, ${margin.top})`); /*backticks
-                                                                            because we use values*/
+                 .attr('transform', `translate(${margin.left}, ${margin.top})`); 
+                 /*backticks because we use values, same than:
+                 .attr('transform', "translate(" + margin.left + ", " + margin.top + ")")
+                 */
 
 //Create Title
 const titleGraph = graph.append("text")
