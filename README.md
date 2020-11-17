@@ -15,7 +15,9 @@ November 2020
 ## Demos
 
 [Simple graph](https://raigyo.github.io/d3js-overview/graph-1.html)
-
+[Simple graph 2](https://raigyo.github.io/d3js-overview/concepts-methods-axes.html)
+[Simple pie](https://raigyo.github.io/d3js-overview/concept-methods-pie.html)
+[Color animation](https://raigyo.github.io/d3js-overview/mouse-color-animation.html)
 
 ## Useful links
 
