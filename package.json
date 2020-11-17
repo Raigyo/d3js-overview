@@ -2,9 +2,11 @@
   "name": "d3js",
   "version": "1.0.0",
   "description": "November 2020",
-  "main": "index.html",
+  "main": "overview.html",
+  "homepage": "https://raigyo.github.io/d3js-overview/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
   "repository": {

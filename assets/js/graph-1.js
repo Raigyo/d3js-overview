@@ -23,6 +23,13 @@ const graph = svg.append('g')
                  .attr('transform', `translate(${margin.left}, ${margin.top})`); /*backticks
                                                                             because we use values*/
 
+//Create Title
+const titleGraph = graph.append("text")
+                        .text("Prices in euros for round trip flights by countries")
+                        .attr('x', graphWidth / 2)
+                        .attr("y", 550)
+                        .style("text-anchor", "middle");
+
 // we create 2 groups for the axis
 const groupeX = graph.append('g')
                      .attr('transform', `translate(0, ${graphHeight})`); // put the x axis below
@@ -58,15 +65,16 @@ d3.json('assets/js/data-graph-1.json').then(myData => {
                    .data(myData)
 
   rects.attr('width', x.bandwidth())
-  .attr('height', function(d){return graphHeight - y(d.price)})
+  .attr('height', function(d){return graphHeight - y(d.price)}) /* total height - rect height*/
   .attr('fill', 'teal')
   .attr('x', function(d){return x(d.name)})
-  .attr('y', function(d){return y(d.price)});
+  .attr('y', function(d){return y(d.price)}); /* place the rectangles at the good position
+                                              from their price value to zero*/
 
   rects.enter()
         .append('rect')
         .attr('width', x.bandwidth())
-        .attr('height', function(d){return graphHeight - y(d.price)})
+        .attr('height', function(d){return graphHeight - y(d.price)}) // total height - rect height
         .attr('fill', 'teal')
         //.attr('x', function(d,i){return i * 75}); // shift on x
         .attr('x', function(d){return x(d.name)})
@@ -74,8 +82,12 @@ d3.json('assets/js/data-graph-1.json').then(myData => {
 
   //creation of axis and placement
   const axeX = d3.axisBottom(x); // X axis side
-  const axeY = d3.axisLeft(y); // Y axis side
+  const axeY = d3.axisLeft(y) // Y axis side
+                 .ticks(6) // number of ticks on the axis (approximatively)
+                 .tickFormat(d => d + ' Euros');
 
-  groupeX.call(axeX); // we put axis in groups
-  groupeY.call(axeY);
+  groupeX.call(axeX) // we put axis in groups
+         .style('font-size', "14px")
+  groupeY.call(axeY)
+         .style('font-size', "14px");
 })
