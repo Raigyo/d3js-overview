@@ -11,14 +11,10 @@ November 2020
 <h1 align="center">
     <img src="_readme-img/d3-logo.png">
 </h1>
-## How to use
 
-In html file, ad:
+## Demos
 
-````html
-<script src="assets/js/d3/d3.min.js"></script>
-````
-
+[Simple graph](https://raigyo.github.io/d3js-overview/graph-1.html)
 
 
 ## Useful links
