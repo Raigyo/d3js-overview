@@ -14,13 +14,20 @@ November 2020
 
 ## Demos
 
+### Projects
 
-[Simple graph using Json](https://raigyo.github.io/d3js-overview/graph-1-json.html)
-[Same graph using Firebase](https://raigyo.github.io/d3js-overview/graph-1.html)
-[Simple graph](https://raigyo.github.io/d3js-overview/concepts-methods-axes.html)
-[Simple pie](https://raigyo.github.io/d3js-overview/concept-methods-pie.html)
-[Color animation](https://raigyo.github.io/d3js-overview/mouse-color-animation.html)
-[Interpolation-tween](https://raigyo.github.io/d3js-overview/interpolation-tween.html)
+Animated tile graphic with datas from Firebase and automatic udpate when we add, update
+or delete data from the database:
+
+- [Graph using Firebase](https://raigyo.github.io/d3js-overview/graph-1.html)
+
+### Concepts and methods
+
+- [Simple graph using Json](https://raigyo.github.io/d3js-overview/graph-1-json.html)
+- [Simple graph](https://raigyo.github.io/d3js-overview/concepts-methods-axes.html)
+- [Simple pie](https://raigyo.github.io/d3js-overview/concept-methods-pie.html)
+- [Color animation](https://raigyo.github.io/d3js-overview/mouse-color-animation.html)
+- [Interpolation-tween](https://raigyo.github.io/d3js-overview/interpolation-tween.html)
 
 ## Useful links
 

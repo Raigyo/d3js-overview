@@ -68,10 +68,12 @@ const maj = (myData) => {
 
   // update of rect already in DOM
   rects.attr('width', x.bandwidth())
-  .attr('height', function(d){return graphHeight - y(d.price)})
-  .attr('fill', 'teal')
-  .attr('x', function(d){return x(d.name)})
-  .attr('y', function(d){return y(d.price)});
+       .attr('fill', 'teal')
+       .attr('x', function(d){return x(d.name)})
+       .transition()
+       .duration(600)
+       .attr('y', function(d){return y(d.price)})
+       .attr('height', function(d){return graphHeight - y(d.price)})
 
   // fct exit (delete from DOM)
   rects.exit().remove();
@@ -80,10 +82,14 @@ const maj = (myData) => {
   rects.enter()
         .append('rect')
         .attr('width', x.bandwidth())
-        .attr('height', function(d){return graphHeight - y(d.price)})
+        .attr('height', 0) // min height
         .attr('fill', 'teal')
         .attr('x', function(d){return x(d.name)})
-        .attr('y', function(d){return y(d.price)});
+        .attr('y', graphHeight) // max height
+        .transition()
+        .duration(600)
+        .attr('y', function(d){return y(d.price)})
+        .attr('height', function(d){return graphHeight - y(d.price)})
 
   // we call axis in groups
   groupeX.call(axeX)
