@@ -1,3 +1,5 @@
+// SETUP
+
 // const svg = d3.select('svg');
 
 // we create the svg using javascript
@@ -20,7 +22,7 @@ that is in the selection.*/
 const graph = svg.append('g')
                  .attr('width', graphWidth)
                  .attr('height', graphHeight)
-                 .attr('transform', `translate(${margin.left}, ${margin.top})`); 
+                 .attr('transform', `translate(${margin.left}, ${margin.top})`);
                  /*backticks because we use values, same than:
                  .attr('transform', "translate(" + margin.left + ", " + margin.top + ")")
                  */
@@ -37,59 +39,94 @@ const groupeX = graph.append('g')
                      .attr('transform', `translate(0, ${graphHeight})`); // put the x axis below
 const groupeY = graph.append('g');
 
-d3.json('assets/js/data-graph-1.json').then(myData => {
-  /* The d3.extent() function in D3.js is used to returns the minimum and maximum value
-  in an array from the given array using natural order.
-  If an array is empty then it returns undefined, undefined as output.*/
-  // const min = d3.min(myData, d => d.price); // min price
-  const max = d3.max(myData, d => d.price); // max price
-  // const extent = d3.extent(myData, d => d.price);
+// data range and scale
+const y = d3.scaleLinear()
+            .range([graphHeight, 0]);
 
-  // The d3.scaleLinear() method is used to create a visual scale point.
-  // This method is used to transform data values into visual variables.
-  const y = d3.scaleLinear()
-              .domain([0, max]) // input data from min to max
-              /* range is the output range that you would like your input values to map to.*/
-              .range([graphHeight, 0]); // was .range([0, 480]), but we need to invert it
+const x = d3.scaleBand()
+            .range([0, 480])
+            .paddingInner(0.3)
+            .paddingOuter(0.2)
 
-  /* The d3.scaleBand() function in D3.js is used to construct a new band scale with the domain
-  specified as an array of values and the range as the minimum and maximum extents of the bands.
-  This function splits the range into n bands where n is the number of values in the domain array.*/
-  const x = d3.scaleBand()
-              // map: put selected datas from json into an arry
-              .domain(myData.map(item => item.name))
-              .range([0, 480])
-              .paddingInner(0.3)
-              .paddingOuter(0.2)
+// creation of axis and placement
+const axeX = d3.axisBottom(x);
+const axeY = d3.axisLeft(y)
+                .ticks(6)
+                .tickFormat(d => d + ' Euros');
 
-  // we add rect to the group 'graph'
+// DATA
+
+// Update DOM when we make changes in Firebase
+const maj = (myData) => {
+  // domain: data max items maping
+  y.domain([0, d3.max(myData, d => d.price)]);
+  x.domain(myData.map(item => item.name));
+
+  // we add rect to the group 'graph' with data
   const rects = graph.selectAll('rect')
-                   .data(myData)
+                     .data(myData);
 
+  // update of rect already in DOM
   rects.attr('width', x.bandwidth())
-  .attr('height', function(d){return graphHeight - y(d.price)}) /* total height - rect height*/
+  .attr('height', function(d){return graphHeight - y(d.price)})
   .attr('fill', 'teal')
   .attr('x', function(d){return x(d.name)})
-  .attr('y', function(d){return y(d.price)}); /* place the rectangles at the good position
-                                              from their price value to zero*/
+  .attr('y', function(d){return y(d.price)});
 
+  // fct exit (delete from DOM)
+  rects.exit().remove();
+
+  // fct enter
   rects.enter()
         .append('rect')
         .attr('width', x.bandwidth())
-        .attr('height', function(d){return graphHeight - y(d.price)}) // total height - rect height
+        .attr('height', function(d){return graphHeight - y(d.price)})
         .attr('fill', 'teal')
-        //.attr('x', function(d,i){return i * 75}); // shift on x
         .attr('x', function(d){return x(d.name)})
         .attr('y', function(d){return y(d.price)});
 
-  //creation of axis and placement
-  const axeX = d3.axisBottom(x); // X axis side
-  const axeY = d3.axisLeft(y) // Y axis side
-                 .ticks(6) // number of ticks on the axis (approximatively)
-                 .tickFormat(d => d + ' Euros');
-
-  groupeX.call(axeX) // we put axis in groups
-         .style('font-size', "14px")
+  // we call axis in groups
+  groupeX.call(axeX)
+         .style('font-size', "14px");
   groupeY.call(axeY)
          .style('font-size', "14px");
+}
+
+// Firebase connection
+
+// db.collection('country').get().then(res => {
+//   var myData = [];
+//   res.docs.forEach(doc => {
+//     myData.push(doc.data())
+//   })
+//   maj(myData);
+// })
+
+// onSnapshot: Firebase method to update in realtime
+
+var myData = [];
+db.collection('country').onSnapshot(res => {
+  // console.log(res.docChanges());
+  res.docChanges().forEach(change => {
+    const doc = {...change.doc.data(), id: change.doc.id};
+    switch(change.type){
+      case 'added':
+            myData.push(doc);
+            break;
+      case 'modified':
+            const index = myData.findIndex(item => item.id == doc.id);
+            myData[index] = doc; // we replace old index by the new one
+            break;
+      case 'removed':
+            myData = myData.filter(item => item.id !== doc.id);
+            // leave all items that are different from doc.id
+            // it's removed from myData but not from DOM: use method 'exit'
+            break;
+      default:
+            break;
+    }
+  })
+
+  maj(myData);
+
 })

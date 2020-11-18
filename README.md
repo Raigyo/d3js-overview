@@ -14,8 +14,10 @@ November 2020
 
 ## Demos
 
-[Simple graph](https://raigyo.github.io/d3js-overview/graph-1.html)
-[Simple graph 2](https://raigyo.github.io/d3js-overview/concepts-methods-axes.html)
+
+[Simple graph using Json](https://raigyo.github.io/d3js-overview/graph-1-json.html)
+[Same graph using Firebase](https://raigyo.github.io/d3js-overview/graph-1.html)
+[Simple graph](https://raigyo.github.io/d3js-overview/concepts-methods-axes.html)
 [Simple pie](https://raigyo.github.io/d3js-overview/concept-methods-pie.html)
 [Color animation](https://raigyo.github.io/d3js-overview/mouse-color-animation.html)
 [Interpolation-tween](https://raigyo.github.io/d3js-overview/interpolation-tween.html)
@@ -29,4 +31,5 @@ November 2020
 - [D3.js Snippets](https://marketplace.visualstudio.com/items?itemName=hridoy.d3-js-snippets)
 - [geeksforgeeks.org - D3.js](https://www.geeksforgeeks.org/tag/d3-js/)
 - [Drawing axis in d3.js](https://www.d3-graph-gallery.com/graph/custom_axis.html)
-- [D3 time formatting example](https://bl.ocks.org/zanarmstrong/ca0adb7e426c12c06a95)
+- [D3 time formating example](https://bl.ocks.org/zanarmstrong/ca0adb7e426c12c06a95)
+- [Get realtime updates with Cloud Firestore](https://firebase.google.com/docs/firestore/query-data/listen)
