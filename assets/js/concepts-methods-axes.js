@@ -20,7 +20,7 @@ const groupeX = svg.append('g')
                    .attr('transform', `translate(0, ${height})`);
 const groupeY = svg.append('g');
 
-d3.json('assets/js/data-method-axes.json').then(data => {
+d3.json('../js/data-method-axes.json').then(data => {
 
   var parseTime = d3.timeParse("%d-%b-%y");
 

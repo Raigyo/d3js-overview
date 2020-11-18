@@ -16,18 +16,18 @@ November 2020
 
 ### Projects
 
-Animated tile graphic with datas from Firebase and automatic udpate when we add, update
+**Demo 01:** Animated tile graphic with datas from Firebase and automatic udpate when we add, update
 or delete data from the database:
 
-- [Graph using Firebase](https://raigyo.github.io/d3js-overview/graph-tile.html)
+- [Demo 01: Tile graph using Firebase](https://raigyo.github.io/d3js-overview/demo-01-graph-tile.html)
 
 ### Concepts and methods
 
-- [Simple graph using Json](https://raigyo.github.io/d3js-overview/graph-tile-json.html)
-- [Simple graph](https://raigyo.github.io/d3js-overview/concepts-methods-axes.html)
-- [Simple pie](https://raigyo.github.io/d3js-overview/concept-methods-pie.html)
-- [Color animation](https://raigyo.github.io/d3js-overview/mouse-color-animation.html)
-- [Interpolation-tween](https://raigyo.github.io/d3js-overview/interpolation-tween.html)
+- [Simple graph using Json](https://raigyo.github.io/d3js-overview/assets/html/graph-tile-json.html)
+- [Simple graph](https://raigyo.github.io/d3js-overview/assets/html/concepts-methods-axes.html)
+- [Simple pie](https://raigyo.github.io/d3js-overview/assets/html/concept-methods-pie.html)
+- [Color animation](https://raigyo.github.io/d3js-overview/assets/html/mouse-color-animation.html)
+- [Interpolation-tween](https://raigyo.github.io/d3js-overview/assets/html/interpolation-tween.html)
 
 ## Useful links
 

@@ -20,7 +20,7 @@
 //   )
 
 
-d3.json('assets/js/data-circle.json').then(myData => {
+d3.json('../js/data-circle.json').then(myData => {
   const svg = d3.select('svg');
 
   const circles = svg.selectAll('circle')
