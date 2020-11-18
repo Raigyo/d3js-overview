@@ -54,7 +54,7 @@ const axeY = d3.axisLeft(y)
                 .ticks(6)
                 .tickFormat(d => d + ' Euros');
 
-// DATA
+// DATA UPDATE
 
 // Update DOM when we make changes in Firebase
 const maj = (myData) => {
@@ -62,7 +62,7 @@ const maj = (myData) => {
   y.domain([0, d3.max(myData, d => d.price)]);
   x.domain(myData.map(item => item.name));
 
-  // we add rect to the group 'graph' with data
+  // we add 'rect' to the group 'graph' with data
   const rects = graph.selectAll('rect')
                      .data(myData);
 
@@ -98,7 +98,7 @@ const maj = (myData) => {
          .style('font-size', "14px");
 }
 
-// Firebase connection
+// FIREBASE CONNEXION
 
 // db.collection('country').get().then(res => {
 //   var myData = [];
