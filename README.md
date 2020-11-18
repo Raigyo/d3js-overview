@@ -17,12 +17,19 @@ November 2020
 ### Projects
 
 **Demo 01:** Animated tile graphic with datas from Firebase and automatic udpate when we add, update
-or delete data from the database:
+or delete data from the database.
 
-- [Demo 01: Tile graph using Firebase](https://raigyo.github.io/d3js-overview/demo-01-graph-tile.html)
+- [Demo 01: Tile graph](https://raigyo.github.io/d3js-overview/demo-01-graph-tile.html)
+
+![graph-tile-01](_readme-img/graph-tile-01.png)
+
+**Demo 02:** Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+
+- [Demo 01: Pie graph](https://raigyo.github.io/d3js-overview/demo-02-graph-pie.html)
 
 ### Concepts and methods
 
+- [SVG overview](https://raigyo.github.io/d3js-overview/assets/html/svg.html)
 - [Simple graph using Json](https://raigyo.github.io/d3js-overview/assets/html/graph-tile-json.html)
 - [Simple graph](https://raigyo.github.io/d3js-overview/assets/html/concepts-methods-axes.html)
 - [Simple pie](https://raigyo.github.io/d3js-overview/assets/html/concept-methods-pie.html)
