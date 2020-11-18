@@ -41,7 +41,7 @@ const groupeY = graph.append('g');
 
 // DATA
 
-d3.json('assets/js/data-graph-1.json').then(myData => {
+d3.json('assets/js/data-graph-tile.json').then(myData => {
 
   // data max
 

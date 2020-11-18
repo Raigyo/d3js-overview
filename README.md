@@ -19,11 +19,11 @@ November 2020
 Animated tile graphic with datas from Firebase and automatic udpate when we add, update
 or delete data from the database:
 
-- [Graph using Firebase](https://raigyo.github.io/d3js-overview/graph-1.html)
+- [Graph using Firebase](https://raigyo.github.io/d3js-overview/graph-tile.html)
 
 ### Concepts and methods
 
-- [Simple graph using Json](https://raigyo.github.io/d3js-overview/graph-1-json.html)
+- [Simple graph using Json](https://raigyo.github.io/d3js-overview/graph-tile-json.html)
 - [Simple graph](https://raigyo.github.io/d3js-overview/concepts-methods-axes.html)
 - [Simple pie](https://raigyo.github.io/d3js-overview/concept-methods-pie.html)
 - [Color animation](https://raigyo.github.io/d3js-overview/mouse-color-animation.html)
