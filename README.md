@@ -44,6 +44,32 @@ them by clicking on them in the chart.
 
 ![colors-04](_readme-img/colors-04.png)
 
+## To test locally
+
+- Clone
+
+- Rename
+
+`assets/js/_demo-01-graph-tile-firebase.js`
+
+`assets/js/_demo-02-graph-pie-firebase.js`
+
+to
+
+`assets/js/_demo-01-graph-tile-firebase.js`
+
+`assets/js/_demo-02-graph-pie-firebase.js`
+
+- Create a project in Firebase and add a Cloud Firestore application.
+
+- Copy your credentials in the two firebase.js files (you can share the same Firestore application the demos or use two different ones).
+
+- For demo 01: create a collection named 'country' with a string field 'name' and an integer field 'price'. Add some datas.
+
+- For demo 02: create a collection named 'spending' with a string field 'name' and an integer field 'price'. Add some datas.
+
+- It should work locally like that. Don't push your 'firebase.js' on Github!!!
+
 ## Useful links
 
 - [Ziratsu/D3-Formation-CodeSource](https://github.com/Ziratsu/D3-Formation-CodeSource)
