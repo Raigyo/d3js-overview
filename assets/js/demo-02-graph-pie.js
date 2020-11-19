@@ -19,16 +19,33 @@ const arcPath = d3.arc()
                   .outerRadius(dims.radius)
                   .innerRadius(dims.radius / 2);
 
-const color = d3.scaleOrdinal((d3['schemeAccent']));
+// colors
+
+const color = d3.scaleOrdinal((d3['schemeAccent'])); // array with colors
+
+// legends
+const groupeLegends = svg.append('g')
+                          .attr('transform', `translate(${dims.width + 40}, 10)`);
+
+// legendColor: import d3-legend.min.js in HTML
+const legends = d3.legendColor() // we associate colors and legends
+                  .shape('circle')
+                  .scale(color)
 
 // UPDATE
 
 const maj = (myData) => {
-  // console.log(myData)
+
+  // domain color + legends
+  color.domain(myData.map(d => d.name)); // array with all names in db
+  groupeLegends.call(legends);
+  groupeLegends.selectAll('text')
+               .attr('fill', '#fff');
+
   // we add 'path' to the group 'graph' with data
   const paths = graph.selectAll('path')
                      .data(pie(myData));
-  console.log(paths.enter());
+  // console.log(paths.enter());
 
   // fct exit (delete from DOM)
   paths.exit().remove();
@@ -42,10 +59,14 @@ const maj = (myData) => {
        .attr('d', arcPath)
        .attr('stroke', '#fff')
        .attr('stroke-width', 3)
-       .attr('fill', d => color(d.data.nom))
+       .attr('fill', d => color(d.data.name))
        .transition()
        .duration(700)
-       //.attrTween('d', animEnter);
+       .attrTween('d', animEnter);
+
+  // events
+  graph.selectAll('path')
+       .on('click', deleteClick)
 }
 
 // FIREBASE CONNEXION
@@ -71,3 +92,22 @@ db.collection('spending').onSnapshot(res => {
   })
   maj(myData);
 })
+
+// Animation enter
+const animEnter = (d) => {
+  var i = d3.interpolate(d.startAngle, d.endAngle);
+
+  return function(t){
+      d.endAngle = i(t);
+      // we update the Path coords
+      return arcPath(d);
+  }
+}
+
+// Function deleteclick
+  const deleteClick = (d, i) => {
+    console.log(d); // output => mouse coords
+    console.log(i); // output => data
+    const id = i.data.id;
+    db.collection('spending').doc(id).delete();
+  }

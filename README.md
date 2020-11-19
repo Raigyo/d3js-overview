@@ -23,9 +23,13 @@ or delete data from the database.
 
 ![graph-tile-01](_readme-img/graph-tile-01.png)
 
-**Demo 02:** Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum
+**Demo 02:** Animated pie chart with datas from Firebase. We can add items using inputs and delete 
+them by clicking on them in the chart.
 
 - [Demo 02: Pie chart](https://raigyo.github.io/d3js-overview/demo-02-graph-pie.html)
+
+![graph-pie-02](_readme-img/graph-pie-02.png)
+
 
 ### Concepts and methods
 
@@ -35,6 +39,10 @@ or delete data from the database.
 - [Simple pie](https://raigyo.github.io/d3js-overview/assets/html/concept-methods-pie.html)
 - [Color animation](https://raigyo.github.io/d3js-overview/assets/html/mouse-color-animation.html)
 - [Interpolation-tween](https://raigyo.github.io/d3js-overview/assets/html/interpolation-tween.html)
+
+![graph-line-03](_readme-img/graph-line-03.png)
+
+![colors-04](_readme-img/colors-04.png)
 
 ## Useful links
 
@@ -47,3 +55,4 @@ or delete data from the database.
 - [Drawing axis in d3.js](https://www.d3-graph-gallery.com/graph/custom_axis.html)
 - [D3 time formating example](https://bl.ocks.org/zanarmstrong/ca0adb7e426c12c06a95)
 - [Get realtime updates with Cloud Firestore](https://firebase.google.com/docs/firestore/query-data/listen)
+- [d3-legend](https://d3-legend.susielu.com/?utm_source=cdnjs&utm_medium=cdnjs_link&utm_campaign=cdnjs_library)

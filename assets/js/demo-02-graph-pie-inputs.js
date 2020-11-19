@@ -5,20 +5,25 @@ const error = document.querySelector('#error');
 
 form.addEventListener('submit', (e) => {
   e.preventDefault(); // prevent to submit empty form
-  if(name.value && price.value) {
+  if(name.value && parseInt(price.value)) {
     const item = {
         name: name.value,
         price: parseInt(price.value) // type number
     }
 
-  // Send to db in promise then reset fields
-  db.collection('spending').add(item).then(res => {
-      error.textContent = "";
-      name.value = "";
-      price.value = "";
+    // Send to db in promise then reset fields
+    db.collection('spending').add(item).then(res => {
+        error.textContent = "";
+        name.value = "";
+        price.value = "";
   });
 
   } else {
-      error.textContent = 'Fill in both fields to continue';
+      if(!parseInt(price.value) && name.value){
+        error.textContent = 'Please add a number as price';
+      }
+      else {
+        error.textContent = 'Fill in both fields to continue';
+      }
   }
 })
